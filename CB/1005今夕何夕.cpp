@@ -15,8 +15,14 @@ int main()
         int Y,M,D;
         char ch;
         scanf("%d%c%d%c%d", &Y,&ch,&M,&ch,&D);
+        bool flag = false;
+        if((Y % 4 == 0 && Y % 100 != 0)||Y % 400 == 0) {
+            if(M == 2 && D == 29) {
+                flag = true;
+            }
+        }
         int tmp = 0;
-        for(int i = Y + 1; i < Y + 1000; i++) {
+        for(int i = Y + 1; i < Y + 10000; i++) {
             int year;
             if(M <= 2) {
                 year = i - 1;
@@ -29,6 +35,15 @@ int main()
                 day = 366;
             }
             tmp = (tmp + day) % 7;
+            if(flag) {
+                if((i % 4 == 0 && i % 100 != 0)||i % 400 == 0) {
+                    if(tmp == 0) {
+                        cout << i << endl;
+                        break;
+                    }
+                }
+                else continue;
+            }
             if(tmp == 0) {
                 cout << i << endl;
                 break;

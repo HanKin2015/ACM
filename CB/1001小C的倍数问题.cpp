@@ -13,28 +13,14 @@ int main()
     while(T--) {
         int P;
         cin >> P;
-        int cnt = 0;
-        for(int i = 1; i < maxn; i++) {
-            bool flag = true;
-            for(int j = 1; j < 10; j++) {
-                LL tmp = i * j;
-                int sum = 0;
-                while(tmp) {
-                    sum += (tmp % P);
-                    tmp /= P;
-                }
-                if(sum % i) {
-                    flag = false;
-                    break;
-                }
-            }
-            if(flag) {
-                cnt++;
-                //cout << i <<' ';
-            }
+        int cnt = 0, tmp = sqrt(P - 1);
+        for(int i = 1; i < tmp; i++) {
+            if((P - 1) % i == 0) cnt += 2;
         }
+        if(tmp * tmp == (P - 1)) cnt++;
         cout << cnt << endl;
     }
+    //if(sqrt(6) * sqrt(6) == 6) cout << "6666666" << endl; //Ò×´íµã
     return 0;
 }
 

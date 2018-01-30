@@ -63,10 +63,22 @@ int main()
             }
             else if(sum == 2) {
                 bool f = false;
-                for(int i = 0; i < m; i++){
+                for(int i = 0; i < m && !f; i++){
                     if(crr[0][i] == 1) {
                         for(int j = 0; j < m; j++) {
                             if(crr[n-1][j] == 1) {
+                                cout << 1 << endl;
+                                f = true;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                for(int i = 0; i < n && !f; i++){
+                    if(crr[i][0] == 1) {
+                        for(int j = 0; j < n; j++) {
+                            if(crr[j][m-1] == 1) {
                                 cout << 1 << endl;
                                 f = true;
                                 break;

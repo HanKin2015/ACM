@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <sstream>
 using namespace std;
 
 int main()
@@ -15,7 +16,9 @@ int main()
     cout << dp2[34] << endl;
 
     char ch = 'a';
-    string str = ch;
+    stringstream stream;
+    stream << ch;
+    string str = stream.str();
     cout << str << endl;
     return 0;
 }
