@@ -4,12 +4,21 @@ using namespace std;
 class Solution {
 public:
     bool Find(int target, vector<vector<int> > array) {
-        int L = 0, R = array.size() - 1;
-        while(L <= R) {
-            int mid = (L + R) / 2;
-            if(array[mid][mid] == target) return true;
-            else if(array[mid][mid] > target) R = mid - 1;
-            else L = mid + 1;
+        /*思路错误*/
+//        int L = 0, R = array.size() - 1;
+//        while(L <= R) {
+//            int mid = (L + R) / 2;
+//            if(array[mid][mid] == target) return true;
+//            else if(array[mid][mid] > target) R = mid - 1;
+//            else L = mid + 1;
+//        }
+        /*find不能在嵌套的容器中使用*/
+        //vector<vector<int> >::iterator it = find(array.begin(), array.end(), target);
+        //if(it == array.end()) return false;
+
+        for(int i = 0; i < array.size(); i++) {
+            vector<int>::iterator it = find(array[i].begin(), array[i].end(), target);
+            if(it != array[i].end()) return true;
         }
         return false;
     }
@@ -25,18 +34,5 @@ int main()
 }
 
 
-def GetUglyNumber_Solution(self, index):
-聽聽聽聽聽聽聽聽res=[2**i*3**j*5**k聽 for i in range(30)聽 for j in range(20)聽聽 for k in range(15)]
-聽聽聽聽聽聽聽聽res.sort()
-聽聽聽聽聽聽聽聽return res[index-1] if index else 0
-
-    int x = i + j
-    for i in range(23):
-        for
-
-    閾炬帴锛歨ttps://www.nowcoder.com/questionTerminal/6aa9e04fc3794f68acf8778237ba065b
-鏉ユ簮锛氱墰瀹㈢綉
-
-return sorted([2**i*3**j*5**k聽 for i in range(30)聽 for j in range(20)聽聽 for k in range(15)])[index-1] if index else 0
 
 
