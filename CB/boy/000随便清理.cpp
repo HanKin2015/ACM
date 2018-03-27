@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#pragma message("消息文本")
 using namespace std;
 
 int main()
@@ -32,5 +33,10 @@ int main()
     }
     int ans = pow(M - 1, N) + pow(-1, N) * (M - 1);
     cout << ans << endl;
+
+    int PictureCnt = 1;
+    string stri = to_string(PictureCnt) + ".png";
+	const char *fileName = stri.data();
+	cout << fileName << endl;
     return 0;
 }
