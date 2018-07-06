@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class T
+{
+    public:
+     ~T(){cout<<"析构函数被调用。";} //为了简洁，函数体可以直接写在定义的后面，此时函数为内联函数
+};
+
 int main()
 {
     //对了对于/需要转移，\则不需要？？？
@@ -18,5 +24,9 @@ int main()
     string t("");
     test_str = regex_replace(test_str,reg1,t); //trim_left
     test_str = regex_replace(test_str,reg2,t); //trim_right
+
+    T *tt = new T();//建立一个T类的指针对象t
+    //delete tt;
+    //cin.get();
     return 0;
 }

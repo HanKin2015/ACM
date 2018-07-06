@@ -1,4 +1,4 @@
-/*
+﻿/*
 组合数：从n中取m个元素的组合方式有多少？
 公    式 C(n,m)=n!/((n-m)!*m!)（m≤n）
 性质1 C(n,m)= C(n,n-m)
@@ -8,21 +8,23 @@ lucas （数论定理）
 https://www.cnblogs.com/Running-Time/p/4749067.html
 */
 #include <bits/stdc++.h>
+#define mod 1000000007
 using namespace std;
 
 int main()
 {
 
-    int n, m, C[105][105];
-    for(int i = 1; i < 105; i++) {
+    int n, m, C[1005][1005];
+    for(int i = 1; i < 1005; i++) {
         C[i][i] = C[i][0] = 1;
         for(int j = 1; j < i; j++) {
             C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
+	    C[i][j] %= mod;
         }
 
     }
     while(cin >> n >> m) {
-        cout << C[n][m] << endl;
+        cout << C[n][m] % mod << endl;
     }
     return 0;
 }

@@ -9,14 +9,15 @@
 #include <iostream>
 using namespace std;
 
-struct List {
+struct Node {
     int value;
-    List *next;
-};
+    Node *next;
+}ListNode, *LinkList;
 
-void Display(List *L)
+//print element
+void Display(LinkList L)
 {
-    while(L->next != NULL) {
+    while(L->next != NULL)  {
         L = L->next;
         cout << L->value << ' ';
     }
