@@ -32,7 +32,7 @@ int N, M, sx, sy, ex, ey;
 int mat[105][105];
 // 4个方向上下左右移动的向量
 int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
-pair<int, int> last[105][105];
+pair<int, int> last[105][105];  // 记录前一步的最佳位置
 
 void PrintPath(int x, int y)
 {
@@ -45,7 +45,7 @@ void PrintPath(int x, int y)
 
 int bfs(int sx, int sy, int ex, int ey)
 {
-    int vis[105][105], step[105][105];
+    int vis[105][105], step[105][105];   // 记录步数
     memset(vis, 0, sizeof(vis));
     step[sx][sy] = 0;
     vis[sx][sy] = 1;
