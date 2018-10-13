@@ -17,16 +17,18 @@ using namespace std;
  
 const int maxn = 1e4 + 5;
  
+ // 这种方法不建议使用
 struct Node {
-    int value;
+    int val;
     Node *next;
-}LinkNode, *LinkList;
+    //Node (int x): val(x), next(nullptr) {}   这种形式写会报错
+}LinkNode, *LinkList;    // LinkNode和LinkList已经是实例化对象，不能当作类型使用
  
-typedef struct ListNode {  // 好奇怪,不写typedef会出错???
+typedef struct ListNode {  // typedef写就不会出错
     int val;
     ListNode *next;
-    ListNode(int x): val(x), next(NULL) {}
-}ListNode, *ListList;
+    ListNode (int x): val(x), next(NULL) {}
+}ListNode, *ListList;    
  
 void ListBuild(ListList L, int arr[], int len)
 {
@@ -60,7 +62,7 @@ int main()
     #endif // BUG
     int arr[] = {6, 5, 4, 3, 2, 1};
     int len = sizeof(arr) / sizeof(arr[0]);
-    ListList L;
+    ListList L;     // 这是typedef定义的struct结构类型
     L = (ListNode*)malloc(sizeof(ListNode));
     ListBuild(L, arr, len);
     Display(L);
