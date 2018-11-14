@@ -18,17 +18,17 @@ int topo()
     {
         if(indegree[i]==0)
         {
-            q.push(i);
+            q.push(i);  // 起点
         }
     }
 
     int temp;
     while(!q.empty())
     {
-        temp=q.front();//如果是优先队列，这里可以是top()
+        temp=q.front();// 如果是优先队列，这里可以是top()
         printf("%d->",temp);
         q.pop();
-        for(int i=1;i<=n;i++)//遍历从temp出发的每一条边，入度--
+        for(int i=1;i<=n;i++)// 遍历从temp出发的每一条边，入度--
         {
             if(map[temp][i])
             {

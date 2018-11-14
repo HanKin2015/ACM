@@ -1,0 +1,74 @@
+/*
+36进制由0-9，a-z，共36个字符表示，最小为'0'
+'0'~'9'对应十进制的0~9，'a'~'z'对应十进制的10~35
+例如：'1b' 换算成10进制等于 1 * 36^1 + 11 * 36^0 = 36 + 11 = 47
+要求按照加法规则计算出任意两个36进制正整数的和
+如：按照加法规则，计算'1b' + '2x' = '48'
+要求：不允许把36进制数字整体转为10进制数字，计算出10进制数字的相加结果再转回为36进制
+Q：用户表有『余额』等字段，订单表中有『金额』、『付款状态』（分为未付款、已付款）等字段。请实现需求：付款功能，即：当用户的余额大于订单金额时，订单的『付款状态』由『未付款』更新为『已付款』，并从用户的『余额』中扣除订单的『金额』。请处理好并发冲突。
+*/
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+char int2char(int n)
+{
+    if (n <= 9) return '0' + n;
+    return 'a' + (n - 10);
+}
+
+int char2int(char c)
+{
+    if (c >= 'a') return c - 'a' + 10;
+    return c - '0';
+}
+
+string Add(string x, string y)
+{
+    stack<char> ans;
+    int len1 = x.size(), len2 = y.size();
+    int i = len1 - 1, j = len2 - 1;
+    int flag = 0;
+    while (i >= 0 && j >= 0) {
+        int a = char2int(x[i]), b = char2int(y[j]);
+        //cout << a << ' ' << b << endl;
+        int tmp = a + b + flag;
+        flag = tmp / 36;
+        tmp %= 36;
+        ans.push(int2char(tmp));
+        //cout << int2char(tmp) << endl;
+        i--, j--;
+    }
+    while (i >= 0) {
+        int tmp = char2int(x[i]) + flag;
+        flag = tmp / 36;
+        tmp %= 36;
+        ans.push(int2char(tmp));
+        i--;
+    }
+    while (j >= 0) {
+        int tmp = char2int(y[j]) + flag;
+        flag = tmp / 36;
+        tmp %= 36;
+        ans.push(int2char(tmp));
+        j--;
+    }
+    if (flag)
+    
+    string res = "";
+    while (!ans.empty()) {
+        res += ans.top();
+        ans.pop();
+    }
+    return res;
+}
+
+int main() {
+   string x = "1", y = "zz";
+   string ans = Add(x, y);
+   cout << ans << endl;
+    //assert(Add)
+    return 0;
+}
+
