@@ -124,7 +124,7 @@ if __name__ == '__main__':
     #print(nltk.help.upenn_tagset())
     
     start_time = time.time()
-    dblp_process('dblp_author_attr_original.txt', 'dblp_author_attributes.txt')
+    dblp_process('dblp_author_attr_original.txt', 'dblp_nltk_attributes.txt')
     #dblp_process('fin.txt', 'fout.txt')
     print('total time = %lf s' %(time.time() - start_time)) 
     

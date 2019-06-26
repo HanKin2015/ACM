@@ -16,7 +16,7 @@ int main()
             }
         }
         double cur = 1.0 / mult;
-        if (bits % 2 == 1)
+        if (bits % 2 == 0)
             sum += cur;
         else
             sum -= cur;
